@@ -55,11 +55,6 @@ main {
    transition: opacity 0.3s ease-in-out;
 }
 
-.recipes {
-   /* display: flex; */
-   /* gap: 5px; */
-}
-
 .recipes__item:hover .recipes__img::after {
    opacity: .2;
 }
