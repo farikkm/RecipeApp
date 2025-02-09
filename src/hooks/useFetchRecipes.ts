@@ -5,7 +5,7 @@ const API_KEY = "17ca904bd1fe4b9caa14b70958ca3815";
 const RANDOM_RECIPES_URL = `https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=12`;
 
 export function useFetchRecipes() {
-   const [randomRecipes, setRandomRecipes] = useState<Recipe[]>([])
+   const [recipes, setRecipes] = useState<Recipe[]>([])
    const [loading, setLoading] = useState(true)
    const [error, setError] = useState<string | null>(null)
 
@@ -13,7 +13,7 @@ export function useFetchRecipes() {
       fetch(RANDOM_RECIPES_URL)
          .then((response) => response.json())
          .then((data) => {
-            setRandomRecipes(data.recipes)
+            setRecipes(data.recipes)
             setLoading(false)
          })
          .catch((err) => {
@@ -22,5 +22,5 @@ export function useFetchRecipes() {
          })
    }, [])
 
-   return {randomRecipes, loading, error}
+   return {recipes, loading, error}
 }
