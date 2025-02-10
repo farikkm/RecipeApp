@@ -1,6 +1,6 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Recipe } from "../types";
 import RecipeItems from "../components/RecipeItems";
 import LoadingSpinner from "../components/ui/LoadingSpinner";
