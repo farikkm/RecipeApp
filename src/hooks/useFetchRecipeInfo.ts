@@ -6,14 +6,18 @@ const API_URL = 'https://api.spoonacular.com/recipes/';
 
 export default function useFetchRecipeInfo(id: string | undefined) {
    const [recipe, setRecipe] = useState<Recipe | null>(null)
+   const [loading, setLoading] = useState(false)
+   const [error, setError] = useState<string | null>(null)
 
    useEffect(() => {
+      setLoading(true)
       const url = `${API_URL}/${id}/information?apiKey=${API_KEY}`
       fetch(url)
          .then((res) => res.json())
          .then((data) => setRecipe(data))
-         .catch((error) => console.error(error))
+         .catch((err) => setError(err))
+      setLoading(false)
    }, [id])
 
-   return recipe;
+   return {recipe, loading, error};
 }

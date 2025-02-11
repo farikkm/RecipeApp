@@ -25,7 +25,6 @@ export function useFetchRecipes(filters: Record<string, boolean>) {
          .then((response) => response.json())
          .then((data) => {
             const filteredRecipes = data.recipes.filter((recipe: any) => recipe.image)
-            console.log(url);
             setRecipes(filteredRecipes)
             setLoading(false)
          })
